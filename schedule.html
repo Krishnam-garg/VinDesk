@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/pics/icon.png">
+    <title>VinDesk</title>
+
+    <link rel="stylesheet" href="style3.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+<body>
+    </div>
+        <div class="ribbon">
+            <div class="logo"><a href="index.html"><div id="logo"><img src="pics\LOGO.png" alt="VinDeskLogo" width="200px"></div></a></div>
+
+            <div class="ribb">
+                <a href="index.html" class="btn"><i class="ri-dashboard-horizontal-fill"></i> Dashboard</a>
+                <a href="Schedule.html" class="btn"><i class="ri-calendar-schedule-fill"></i> Schedule</a>
+                <a href="vinai.html" class="btn"><i class="ri-quill-pen-ai-fill"></i> VinAi</a>
+                <a href="account.html" class="btn"><i class="ri-account-box-fill"></i> Student</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar open"><i class="ri-menu-line"></i></span>
+                <span class="bar close"><i class="ri-close-large-fill"></i></span>
+                
+            </div>
+            <div class="menucont" id="menucont">
+            <div class="menu">
+                <a href="index.html" class="menubut"><i class="ri-dashboard-horizontal-fill"></i> Dashboard</a>
+                <a href="Schedule.html" class="menubut"><i class="ri-calendar-schedule-fill"></i> Schedule</a>
+                <a href="vinai.html" class="menubut"><i class="ri-quill-pen-ai-fill"></i> VinAi</a>
+                <a href="account.html" class="menubut"><i class="ri-account-box-fill"></i> Student</a>
+            </div>
+            </div>
+            <script>
+                const hamburger = document.getElementById('hamburger');
+                const navLinks = document.getElementById('menucont');
+    
+                hamburger.addEventListener('click', () => {
+                menucont.classList.toggle('show');       // Toggle menu visibility
+                hamburger.classList.toggle('active');    // Toggle icon
+                });
+            </script>
+        </div>
+
+    <div class="main">
+
+
+        <div class="heada">Schedule: </div>
+
+            <div class="section 1">
+                <table class="assign">
+                    <tr>
+                        <th>Timing</th>
+                        <th>Activity</th>
+                        <th>Venue</th>
+                    </tr>
+                
+                    <tr>
+                        <td>Rising</td>
+                        <td>5:00 am</td>
+                        <td>Houses</td>
+                    </tr>   
+                    <tr>
+                        <td>Physical Training</td>
+                        <td>5:35 - 6:10 am</td>
+                        <td>Field</td>
+                    </tr>   
+                    <tr>
+                        <td>Wash & Change</td>
+                        <td>6:10 - 7:00 am</td>
+                        <td>Houses</td>
+                    </tr>   
+                    <tr>
+                        <td>Breakfast</td>
+                        <td>7:05 - 7:30 am</td>
+                        <td>Mess</td>
+                    </tr>   
+                    <tr>
+                        <td>Assembly</td>
+                        <td>7:35 - 8:00 am</td>
+                        <td>Vijay/Lotus Hall</td>
+                    </tr>   
+                    <tr>
+                        <td>Classes</td>
+                        <td>8:00 am - 1:20 pm</td>
+                        <td>Academic Block</td>
+                    </tr>   
+                    <tr>
+                        <td>Lunch</td>
+                        <td>1:25 - 1:55 pm</td>
+                        <td>Mess</td>
+                    </tr>   
+                    <tr>
+                        <td>Rest</td>
+                        <td>2:00 - 3:30 pm</td>
+                        <td>Houses</td>
+                    </tr><tr>
+                        <td>Prep</td>
+                        <td>3:45 - 4:45 pm</td>
+                        <td>Academic Block</td>
+                    </tr>   
+                    <tr>
+                        <td>Games</td>
+                        <td>5:15 - 6:45 pm</td>
+                        <td>Field</td>
+                    </tr>
+                    <tr>
+                        <td>Wash & Change</td>
+                        <td>6:50 - 7:35 pm</td>
+                        <td>Houses</td>
+                    </tr>
+                    <tr>
+                        <td>Dinner</td>
+                        <td>7:40 - 8:10 pm</td>
+                        <td>Mess</td>
+                    </tr>
+                    <tr>
+                        <td>Common Room/Strolling</td>
+                        <td>8:10 - 8:30 pm</td>
+                        <td>Houses/Pathway</td>
+                    </tr>
+                    <tr>
+                        <td>Roll Call</td>
+                        <td>8:30 - 8:45 pm</td>
+                        <td>Houses</td>
+                    </tr>
+                    <tr>
+                        <td>Prep</td>
+                        <td>9:00 - 10:15 pm</td>
+                        <td>Study Room/Cubicles</td>
+                    </tr>
+                    <tr>
+                        <td>Light Off</td>
+                        <td>10:30 pm</td>
+                        <td>Houses</td>
+                    </tr>
+                    
+                    
+                    
+                                     
+                </table>
+
+            </div>
+            <div class="heada">Menu:</div>
+            <div class="section">
+                <table >
+                    <tr>
+                        <th>Day</th>
+                        <th>Breakfast</th>
+                        <th>Lunch</th>
+                        <th>Dinner</th>
+                    </tr>
+                    <tr>
+                        <td>Monday</td>
+                        <td>Vermicelli + Omlette</td>
+                        <td>Daal + Green Veg.</td>
+                        <td>Matar Paneer/Egg Curry</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>Upma + Dalia</td>
+                        <td>Rajmah + Kadhi</td>
+                        <td>Daal/Aaloo Gravy + Poori</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>Egg/Paneer Bhurji</td>
+                        <td>Daal + Green Veg.</td>
+                        <td>Matar Paneer/Egg Curry</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td>Pav Bhaji</td>
+                        <td>Chhole Bhatoore</td>
+                        <td>Kadhai Paneer</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>Aaloo Curry + Egg</td>
+                        <td>Rajmah + Kadhi</td>
+                        <td>Chhola Masala</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>Poha + Pakoda</td>
+                        <td>Sahi Paneer + Daal Makhni</td>
+                        <td>Daal + Green Veg.</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>Aalo Parantha</td>
+                        <td>Khichdi</td>
+                        <td>Dum Aaloo</td>
+                    </tr>
+
+                </table>
+            </div>
+            
+
+    
+
+
+    </div>
+
+
+    <div class="footer">
+        <div class="footnote">श्रद्धा - ज्ञान - कर्म</div>
+
+    </div>
+</body>
+</html>

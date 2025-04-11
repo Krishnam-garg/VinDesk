@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VinDesk</title>
+
+<link rel="stylesheet" href="style4.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    </head>
+
+
+
+<body>
+    <div class="ribbon">
+        <div class="logo"><a href="index.html"><div id="logo"><img src="pics/LOGO.png" alt="VinDeskLogo" width="200px"></div></a></div>
+
+        <div class="ribb">
+            <a href="index.html" class="btn"><i class="ri-dashboard-horizontal-fill"></i> Dashboard</a>
+            <a href="Schedule.html" class="btn"><i class="ri-calendar-schedule-fill"></i> Schedule</a>
+            <a href="vinai.html" class="btn"><i class="ri-quill-pen-ai-fill"></i> VinAi</a>
+            <a href="account.html" class="btn"><i class="ri-account-box-fill"></i> Student</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span class="bar open"><i class="ri-menu-line"></i></span>
+            <span class="bar close"><i class="ri-close-large-fill"></i></span>
+            
+        </div>
+        <div class="menucont" id="menucont">
+        <div class="menu">
+            <a href="index.html" class="menubut"><i class="ri-dashboard-horizontal-fill"></i> Dashboard</a>
+            <a href="Schedule.html" class="menubut"><i class="ri-calendar-schedule-fill"></i> Schedule</a>
+            <a href="vinai.html" class="menubut"><i class="ri-quill-pen-ai-fill"></i> VinAi</a>
+            <a href="account.html" class="menubut"><i class="ri-account-box-fill"></i> Student</a>
+        </div>
+        </div>
+        <script>
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('menucont');
+
+            hamburger.addEventListener('click', () => {
+            menucont.classList.toggle('show');       // Toggle menu visibility
+            hamburger.classList.toggle('active');    // Toggle icon
+            });
+        </script>
+    </div>
+    <div class="container">
+        <h1><i class="ri-quill-pen-ai-fill"></i> VinAi</h1>
+
+        
+
+        <div class="input-section">
+            <label for="notes">Enter your notes:</label>
+            <div class="input-group">
+                <textarea id="notes" name="notes" rows="8" placeholder="Type or speak your notes here..."></textarea>
+                <div class="action-buttons">
+                    <button class="mic-button" id="startSpeechBtn" title="Start Speech to Text"><i class="fas fa-microphone"></i></button>
+                    <button class="generate-button" id="sendBtn"><i class="ri-send-plane-fill"></i></button>
+                </div>
+            </div>
+            <span id="speechStatus"></span>
+        </div>
+
+        <div class="question-settings">
+            <div>
+                <div class="txt">Question Mode:</div>
+                <div class="question-mode-selector">
+                    <label><input type="radio" name="question_mode" value="basic" checked> Basic</label>
+                    <label><input type="radio" name="question_mode" value="intermediate"> Intermediate</label>
+                    <label><input type="radio" name="question_mode" value="advanced"> Advanced</label>
+                    <label><input type="radio" name="question_mode" value="competitive"> Competitive</label>
+                </div>
+            </div>
+            <div class="num-questions-selector">
+                <label class="txt" for="num_questions">Number of questions:</label>
+                <input class="numinp" type="number" id="num_questions" name="num_questions" value="3" min="1" max="10">
+            </div>
+        </div>
+
+        <div class="output-section">
+            <h2>Summary:</h2>
+            <div id="summary-output" class="output-box"></div>
+            <h2>Practice Questions:</h2>
+            <ol id="questions-output" class="output-list"></ol>
+        </div>
+
+        <div class="review-section">
+            <h2>Leave a Review:</h2>
+            <textarea id="reviewText" rows="5" placeholder="Your feedback here..."></textarea>
+            <button id="submitReviewBtn">Submit Review</button>
+            <div id="reviewOutput" class="output-box" style="margin-top: 15px;"></div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript remains largely the same, ensure you have elements with the correct IDs
+        document.addEventListener('DOMContentLoaded', () => {
+            const notesInput = document.getElementById('notes');
+            const numQuestionsInput = document.getElementById('num_questions');
+            const summaryOutput = document.getElementById('summary-output');
+            const questionsOutput = document.getElementById('questions-output');
+            const sendBtn = document.getElementById('sendBtn');
+
+            sendBtn.addEventListener('click', async () => {
+                const notes = notesInput.value;
+                const numQuestions = numQuestionsInput.value;
+                const questionMode = document.querySelector('input[name="question_mode"]:checked').value;
+                let difficulty = questionMode;
+
+                if (questionMode === 'competitive') {
+                    difficulty = 'competitive';
+                }
+
+                summaryOutput.textContent = "Processing...";
+                questionsOutput.innerHTML = "";
+
+                const response = await fetch('/process', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        notes: notes,
+                        num_questions: numQuestions,
+                        question_mode: questionMode,
+                        difficulty: difficulty
+                    })
+                });
+
+                const data = await response.json();
+
+                summaryOutput.textContent = data.summary;
+
+                if (data.questions && data.questions.length > 0) {
+                    data.questions.forEach(question => {
+                        const li = document.createElement('li');
+                        li.textContent = question;
+                        questionsOutput.appendChild(li);
+                    });
+                } else if (data.summary && data.summary.startsWith("Error")) {
+                    const li = document.createElement('li');
+                    li.textContent = "Error generating questions.";
+                    questionsOutput.appendChild(li);
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const submitReviewBtn = document.getElementById('submitReviewBtn');
+            const reviewTextarea = document.getElementById('reviewText');
+            const reviewOutputDiv = document.getElementById('reviewOutput');
+
+            submitReviewBtn.addEventListener('click', () => {
+                const review = reviewTextarea.value.trim();
+                if (review) {
+                    reviewOutputDiv.textContent = "Thank you for your review: " + review;
+                    reviewTextarea.value = "";
+                } else {
+                    alert("Please enter your review before submitting.");
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const startSpeechBtn = document.getElementById('startSpeechBtn');
+            const speechStatus = document.getElementById('speechStatus');
+            const notesInput = document.getElementById('notes');
+            let recognition;
+            let isListening = false;
+            let finalTranscript = '';
+
+            if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+                recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                recognition.continuous = true;
+                recognition.interimResults = true;
+
+                recognition.onstart = () => {
+                    speechStatus.textContent = 'Listening...';
+                    startSpeechBtn.innerHTML = '<i class="fas fa-stop"></i>';
+                    isListening = true;
+                };
+
+                recognition.onresult = (event) => {
+                    let interimTranscript = '';
+                    for (let i = event.resultIndex; i < event.results.length; ++i) {
+                        if (event.results[i].isFinal) {
+                            finalTranscript += event.results[i][0].transcript + ' ';
+                        } else {
+                            interimTranscript += event.results[i][0].transcript;
+                        }
+                    }
+                    notesInput.value = finalTranscript + interimTranscript;
+                };
+
+                recognition.onend = () => {
+                    speechStatus.textContent = 'Speech recognition stopped.';
+                    startSpeechBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+                    isListening = false;
+                };
+
+                recognition.onerror = (event) => {
+                    speechStatus.textContent = 'Speech recognition error: ' + event.error;
+                    startSpeechBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+                    isListening = false;
+                };
+
+                startSpeechBtn.addEventListener('click', () => {
+                    if (isListening) {
+                        recognition.stop();
+                    } else {
+                        finalTranscript = notesInput.value + ' ';
+                        try {
+                            recognition.start();
+                        } catch (error) {
+                            speechStatus.textContent = 'Error starting speech recognition: ' + error.message;
+                            startSpeechBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+                            isListening = false;
+                        }
+                    }
+                });
+            } else {
+                speechStatus.textContent = 'Speech recognition not supported in this browser.';
+                startSpeechBtn.disabled = true;
+                startSpeechBtn.innerHTML = '<i class="fas fa-microphone-slash"></i>';
+            }
+        });
+    </script>
+</body>
+
+</html>
+

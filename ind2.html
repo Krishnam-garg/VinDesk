@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Assistant Portal - Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    :root {
+      --primary: #2D3366;
+      --accent: #7886C7;
+      --light: #FFF2F2;
+      --bg: #f4f6fa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--primary);
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Welcome to BPS Student Portal</h1>
+    <div>Dashboard</div>
+  </header>
+
+  <section class="dashboard">
+    <div class="card" id="menu-card">
+      <h2>🍽️ Today's Menu</h2>
+      <p>Loading...</p>
+    </div>
+
+    <div class="card" id="class-card">
+      <h2>📘 Next Class</h2>
+      <p>Loading...</p>
+    </div>
+
+    <div class="card" id="event-card">
+      <h2>📅 Today's Event</h2>
+      <p>Loading...</p>
+    </div>
+
+    <div class="card" id="notification-card">
+      <h2>🔔 Notifications</h2>
+      <p>Loading...</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Birla Public School | Student Assistant Portal
+  </footer>
+
+  <script>
+    // Example static demo - replace with fetch from your backend API
+    document.getElementById('menu-card').querySelector('p').textContent = 'Lunch: Rajma Chawal | Dinner: Paneer Butter Masala';
+    document.getElementById('class-card').querySelector('p').textContent = '9:40 AM - Physics (Room 12)';
+    document.getElementById('event-card').querySelector('p').textContent = 'Science Exhibition @ Hall 2';
+    document.getElementById('notification-card').querySelector('p').textContent = '2 New Notices - Check Notice Board';
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/pics/icon.png">
+    <title>VinDesk</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+<body>
+    </div>
+        <div class="ribbon">
+            <div class="logo"><a href="index.html"><div id="logo"><img src="pics\LOGO.png" alt="VinDeskLogo" width="200px"></div></a></div>
+
+            <div class="ribb">
+                <a href="index.html" class="btn"><i class="ri-dashboard-horizontal-fill"></i> Dashboard</a>
+                <a href="Schedule.html" class="btn"><i class="ri-calendar-schedule-fill"></i> Schedule</a>
+                <a href="vinai.html" class="btn"><i class="ri-quill-pen-ai-fill"></i> VinAi</a>
+                <a href="account.html" class="btn"><i class="ri-account-box-fill"></i> Student</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar open"><i class="ri-menu-line"></i></span>
+                <span class="bar close"><i class="ri-close-large-fill"></i></span>
+                
+            </div>
+            <div class="menucont" id="menucont">
+            <div class="menu">
+                <a href="index.html" class="menubut"><i class="ri-dashboard-horizontal-fill"></i> Dashboard</a>
+                <a href="Schedule.html" class="menubut"><i class="ri-calendar-schedule-fill"></i> Schedule</a>
+                <a href="vinai.html" class="menubut"><i class="ri-quill-pen-ai-fill"></i> VinAi</a>
+                <a href="account.html" class="menubut"><i class="ri-account-box-fill"></i> Student</a>
+            </div>
+            </div>
+            <script>
+                const hamburger = document.getElementById('hamburger');
+                const navLinks = document.getElementById('menucont');
+    
+                hamburger.addEventListener('click', () => {
+                menucont.classList.toggle('show');       // Toggle menu visibility
+                hamburger.classList.toggle('active');    // Toggle icon
+                });
+            </script>
+        </div>
+
+    <div class="main">
+            <div class="wlcmsec">
+            <div class="wlcm"><div class="greet">Good Morning, </div><div class="name"> Krishnam 👋</div></div>
+            <div class="wlcm2">Welcome to VinDesk,</div>
+            <div class="heada">Dashboard: </div>
+
+            </div>
+
+            <div class="section">
+
+            <div class="row">
+                <a href="schedule.html">
+                    <div class="card">
+                        <div class="card-details">
+                            <p class="title">🍽️Today's Menu:</p>
+                            <p class="subtitle">Lunch: Sahi Paneer</p>
+                            <p class="subtitle">Dinner: Daal + Green Veg.</p>
+                            
+                        </div>
+                    </div>
+                </a>
+                <a href="Schedule.html">
+                    <div class="card">
+                        <div class="card-details">
+                            <p class="title">🎒Next Class:</p>
+                            <p class="subtitle">None </p>
+                            
+                        </div>
+                    </div>
+                </a>
+
+                    <div class="card">
+                        <div class="card-details">
+                            <p class="title">🗓️Today's Event:</p>
+                            <p class="subtitle">Skill Fest Closing</p>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="card-details">
+                            <p class="title">🔔Notification</p>
+                            <p class="subtitle">Best of Luck</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="heada">Classes: </div>
+
+            <div class="section 1">
+                <table class="assign">
+                    <tr>
+                        <th>Subject</th>
+                        <th>Teacher</th>
+                        <th>Description</th>
+                        <th>            </th>
+                    </tr>
+                
+                    <tr>
+                        <td>Physics</td>
+                        <td>Mr. Alok Marwal</td>
+                        <td>Ray Optics</td>
+                        <td><div class="viewbut">View</div></td>
+                    </tr>
+                    <tr>
+                        <td>Chemistry</td>
+                        <td>Mrs. Kajal Marwaha</td>
+                        <td>Vapour Pressure</td>
+                        <td><div class="viewbut">View</div></td>
+                    </tr>
+                    <tr>
+                        <td>English</td>
+                        <td>Ms. Aparupa Chakraboti</td>
+                        <td>Relation & Functions</td>
+                        <td><div class="viewbut">View</div></td>
+                    </tr>
+                    <tr>
+                        <td>Maths</td>
+                        <td>Mr. Vikas Tiwari</td>
+                        <td>Functions</td>
+                        <td><div class="viewbut">View</div></td>
+                    </tr>
+                    
+                </table>
+
+            </div>
+
+    
+
+
+    </div>
+
+
+    <div class="footer">
+        <div class="footnote">श्रद्धा - ज्ञान - कर्म</div>
+
+    </div>
+</body>
+</html>
