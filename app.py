@@ -7,7 +7,6 @@ app = Flask(__name__)
 # PLEASE ENSURE YOU HAVE SET THE 'API_KEY' ENVIRONMENT VARIABLE CORRECTLY.
 # FOR SECURITY REASONS, DO NOT HARDCODE YOUR API KEY DIRECTLY IN THE SCRIPT.
 # Example of setting directly for local testing (NOT RECOMMENDED FOR PRODUCTION):
-os.environ["API_KEY"] = "AIzaSyBSiJ9AOa10PaHqoH-aTQ28HQcX6F4SCz0"  # Replace with your actual API key
 
 genai.configure(api_key=os.environ.get("API_KEY"))
 model = genai.GenerativeModel("gemini-1.5-pro-latest")
